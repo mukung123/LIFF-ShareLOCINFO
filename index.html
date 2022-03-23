@@ -202,15 +202,14 @@
                     }
                 }
             }
-
             if (liff.getContext().type !== "none") {
                 alert("เข้า IF")
                 await liff.sendMessages([flexful])
                 liff.closeWindow()
             }
-            else if (liff.getContext().type == "none") {
-                alert("none")
-            }
+            await liff.sendMessages([flexful])
+            liff.closeWindow()
+
         }
 
         function getContext() {
@@ -281,7 +280,7 @@
 
 
         async function main() {
-            alert('ss')
+            alert('สาธุ')
             await liff.init({ liffId: "1656995427-Pn34wo4q" })
             getLocation()
             await sendMsg()
