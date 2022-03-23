@@ -208,6 +208,9 @@
                 await liff.sendMessages([flexful])
                 liff.closeWindow()
             }
+            else if (liff.getContext().type == "none") {
+                alert("none")
+            }
         }
 
         function getContext() {
