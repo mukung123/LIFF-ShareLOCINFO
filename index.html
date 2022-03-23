@@ -41,16 +41,12 @@
         }
 
         async function sendMsg() {
-            alert('ส่ง')
             const mydate = getDateTime()
             const myLoc = getLocation()
             const myIP = await getIP()
             const profile = await liff.getProfile()
 
             const my_json_locate = JSON.parse(myLoc)
-
-            // alert(my_json_locate.lat.toFixed(4))
-            // alert(my_json_locate.lng.toFixed(4))
 
             const flexful = {
                 "type": "flex",
@@ -203,12 +199,14 @@
                 }
             }
             if (liff.getContext().type !== "none") {
-                alert("เข้า IF")
                 await liff.sendMessages([flexful])
                 liff.closeWindow()
             }
-            await liff.sendMessages([flexful])
-            liff.closeWindow()
+            else {
+                await liff.sendMessages([flexful])
+                liff.closeWindow()
+            }
+
 
         }
 
@@ -280,7 +278,6 @@
 
 
         async function main() {
-            alert('สาธุ')
             await liff.init({ liffId: "1656995427-Pn34wo4q" })
             getLocation()
             await sendMsg()
